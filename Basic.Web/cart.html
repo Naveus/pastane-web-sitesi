@@ -1,0 +1,71 @@
+<!DOCTYPE html>
+<html lang="tr">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Pastane | Siparişim</title>
+  <link rel="stylesheet" href="./css/styles.css" />
+</head>
+<body>
+  <header class="site-header">
+    <div class="container header-inner">
+      <a class="brand" href="./index.html">Pastane</a>
+      <nav class="main-nav">
+        <a href="./index.html" data-nav="home">Anasayfa</a>
+        <a href="./menus.html" data-nav="menus">Menüler</a>
+        <a href="./cart.html" class="active cart-link" data-nav="cart">Siparişim <span class="cart-count" id="cart-count">0</span></a>
+      </nav>
+    </div>
+  </header>
+
+  <main class="container">
+    <h1 class="page-title">Sepetim</h1>
+
+    <div class="cart-controls">
+      <label for="sort-select">Sırala:</label>
+      <select id="sort-select">
+        <option value="price-asc">Fiyat (Artan)</option>
+        <option value="price-desc">Fiyat (Azalan)</option>
+      </select>
+    </div>
+
+    <div id="cart-list" class="cart-list"></div>
+
+    <div class="cart-summary">
+      <div>
+        <span>Ara Toplam:</span>
+        <strong id="subtotal">0 TL</strong>
+      </div>
+      <div>
+        <span>Toplam:</span>
+        <strong id="grandtotal">0 TL</strong>
+      </div>
+      <button class="btn btn-primary" id="checkout-btn">Sepeti Onayla</button>
+    </div>
+  </main>
+
+  <template id="cart-item-template">
+    <div class="cart-item">
+      <img class="thumb" alt="" />
+      <div class="info">
+        <h4 class="title"></h4>
+        <div class="unit-price"></div>
+      </div>
+      <div class="qty">
+        <button class="btn-icon minus">-</button>
+        <span class="count">1</span>
+        <button class="btn-icon plus">+</button>
+      </div>
+      <div class="line-total"></div>
+      <button class="btn-icon remove" title="Kaldır">✕</button>
+    </div>
+  </template>
+
+  <script src="./js/common.js"></script>
+  <script src="./js/data.js"></script>
+  <script src="./js/cart.js"></script>
+  <script src="./js/pages/cart-page.js"></script>
+</body>
+</html>
+
+

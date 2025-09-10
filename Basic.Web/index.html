@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html lang="tr">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Pastane | Anasayfa</title>
+  <link rel="stylesheet" href="./css/styles.css" />
+</head>
+<body>
+  <header class="site-header">
+    <div class="container header-inner">
+      <a class="brand" href="./index.html">Pastane</a>
+      <nav class="main-nav">
+        <a href="./index.html" data-nav="home">Anasayfa</a>
+        <a href="./menus.html" data-nav="menus">Menüler</a>
+        <a href="./cart.html" class="cart-link" data-nav="cart">
+          Siparişim <span class="cart-count" id="cart-count">0</span>
+        </a>
+      </nav>
+    </div>
+  </header>
+
+  <main class="container">
+    <h1 class="page-title">Ürünler</h1>
+    <div id="product-list" class="grid grid-3"></div>
+  </main>
+
+  <template id="product-card-template">
+    <div class="card product-card">
+      <div class="thumb-wrap">
+        <img class="thumb" alt="" />
+      </div>
+      <div class="card-body">
+        <h3 class="title"></h3>
+        <p class="desc"></p>
+        <div class="price-row">
+          <span class="price"></span>
+          <button class="btn btn-primary add-to-cart">Sepete Ekle</button>
+        </div>
+      </div>
+    </div>
+  </template>
+
+  <script src="./js/common.js"></script>
+  <script src="./js/data.js"></script>
+  <script src="./js/cart.js"></script>
+  <script src="./js/pages/home.js"></script>
+</body>
+</html>
+
+
