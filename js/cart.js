@@ -12,8 +12,23 @@
 
   function add(productId, qty = 1) {
     const items = read();
-    const found = items.find(i => i.productId === productId);
-    if (found) { found.qty += qty; } else { items.push({ productId, qty }); }
+    const found = items.find(i => i.productId === productId && !i.isPackage);
+    if (found) { found.qty += qty; } else { items.push({ productId, qty, isPackage: false }); }
+    write(items);
+  }
+  
+  function addPackage(packageKey) {
+    const items = read();
+    const packageId = `package-${packageKey}`;
+    const found = items.find(i => i.productId === packageId && i.isPackage);
+    if (found) { found.qty += 1; } else { 
+      items.push({ 
+        productId: packageId, 
+        qty: 1, 
+        isPackage: true,
+        packageKey: packageKey 
+      }); 
+    }
     write(items);
   }
   function set(productId, qty) {
@@ -28,10 +43,26 @@
   function clear() { write([]); }
 
   function getDetailed() {
-    return read().map(i => ({ ...i, product: getProductById(i.productId) })).filter(i => i.product);
+    return read().map(i => {
+      if (i.isPackage) {
+        const pkg = MENU_PACKAGES[i.packageKey];
+        if (!pkg) return null;
+        const pricing = calculatePackagePrice(i.packageKey);
+        return {
+          ...i,
+          isPackage: true,
+          package: pkg,
+          pricing: pricing,
+          displayPrice: pricing.discountedPrice
+        };
+      } else {
+        const product = getProductById(i.productId);
+        return product ? { ...i, product, displayPrice: product.price } : null;
+      }
+    }).filter(i => i !== null);
   }
 
-  window.Cart = { read, write, add, set, remove, clear, getDetailed };
+  window.Cart = { read, write, add, addPackage, set, remove, clear, getDetailed };
 })();
 
 

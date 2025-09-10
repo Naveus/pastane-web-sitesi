@@ -9,14 +9,14 @@
   function formatTL(v) { return `${v} TL`; }
 
   function computeTotals(items) {
-    const subtotal = items.reduce((sum, it) => sum + (it.product.price * it.qty), 0);
+    const subtotal = items.reduce((sum, it) => sum + (it.displayPrice * it.qty), 0);
     return { subtotal, total: subtotal };
   }
 
   function getSortedItems() {
     const items = Cart.getDetailed();
     // Otomatik olarak yüksek fiyattan düşük fiyata sırala
-    items.sort((a, b) => b.product.price - a.product.price);
+    items.sort((a, b) => b.displayPrice - a.displayPrice);
     return items;
   }
 
@@ -33,17 +33,28 @@
     
     items.forEach(it => {
       const node = template.content.firstElementChild.cloneNode(true);
-      node.querySelector('.thumb').src = it.product.img;
-      node.querySelector('.thumb').alt = it.product.title;
-      node.querySelector('.title').textContent = it.product.title;
-      node.querySelector('.unit-price').textContent = `Birim: ${formatTL(it.product.price)} • ${it.product.weight || ''}`;
-      node.querySelector('.count').textContent = String(it.qty);
-      node.querySelector('.line-total').textContent = formatTL(it.product.price * it.qty);
+      
+      if (it.isPackage) {
+        // Menü paketi için özel görünüm
+        node.querySelector('.thumb').src = 'https://images.unsplash.com/photo-1555507036-ab1f4038808a?q=80&w=400&auto=format&fit=crop';
+        node.querySelector('.thumb').alt = it.package.title;
+        node.querySelector('.title').textContent = `📦 ${it.package.title}`;
+        node.querySelector('.unit-price').textContent = `Paket fiyatı • ${it.pricing.discountPercent}% indirimli`;
+        node.querySelector('.count').textContent = String(it.qty);
+        node.querySelector('.line-total').textContent = formatTL(it.displayPrice * it.qty);
+      } else {
+        // Normal ürün
+        node.querySelector('.thumb').src = it.product.img;
+        node.querySelector('.thumb').alt = it.product.title;
+        node.querySelector('.title').textContent = it.product.title;
+        node.querySelector('.unit-price').textContent = `Birim: ${formatTL(it.product.price)} • ${it.product.weight || ''}`;
+        node.querySelector('.count').textContent = String(it.qty);
+        node.querySelector('.line-total').textContent = formatTL(it.displayPrice * it.qty);
+      }
 
       // Counter butonları
       const minusBtn = node.querySelector('.minus');
       const plusBtn = node.querySelector('.plus');
-      const countEl = node.querySelector('.count');
       
       minusBtn.addEventListener('click', () => { 
         Cart.set(it.productId, it.qty - 1); 

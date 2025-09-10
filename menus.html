@@ -21,14 +21,23 @@
   <main class="container">
     <h1 class="page-title">Menüler</h1>
 
-    <div class="menu-selector">
-      <button class="btn btn-outline" data-menu="all">Tüm Ürünler</button>
-      <button class="btn btn-outline" data-menu="two">2 Kişilik Menü</button>
-      <button class="btn btn-outline" data-menu="four">4 Kişilik Menü</button>
-      <button class="btn btn-outline" data-menu="mix">Karışık Menü</button>
+    <!-- Menü Paketleri -->
+    <div class="menu-packages">
+      <h2 class="section-title">Hazır Paketler</h2>
+      <div id="menu-package-list" class="grid grid-3"></div>
     </div>
 
-    <div id="menu-products" class="grid grid-3"></div>
+    <!-- Tekli Ürünler -->
+    <div class="individual-products">
+      <h2 class="section-title">Tekli Ürünler</h2>
+      <div class="menu-selector">
+        <button class="btn btn-outline active" data-menu="all">Tüm Ürünler</button>
+        <button class="btn btn-outline" data-menu="borek">Börekler</button>
+        <button class="btn btn-outline" data-menu="pogaca">Poğaçalar</button>
+        <button class="btn btn-outline" data-menu="tatli">Tatlılar</button>
+      </div>
+      <div id="menu-products" class="grid grid-3"></div>
+    </div>
   </main>
 
   <template id="product-card-template">
@@ -43,6 +52,23 @@
           <span class="price"></span>
           <button class="btn btn-primary add-to-cart">Sepete Ekle</button>
         </div>
+      </div>
+    </div>
+  </template>
+
+  <template id="menu-package-template">
+    <div class="card menu-package-card">
+      <div class="package-header">
+        <h3 class="package-title"></h3>
+        <p class="package-desc"></p>
+      </div>
+      <div class="package-items"></div>
+      <div class="package-footer">
+        <div class="package-price-info">
+          <span class="original-price"></span>
+          <span class="package-price"></span>
+        </div>
+        <button class="btn btn-primary add-package-to-cart">Paketi Sepete Ekle</button>
       </div>
     </div>
   </template>

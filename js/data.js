@@ -21,8 +21,8 @@ const HOME_PRODUCTS = [
 const MENU_PRODUCTS = [
   { id: 'borek-kiymali', title: 'Kıymalı Börek', desc: 'El açması, tereyağlı', price: 95, weight: '250g', img: 'https://images.unsplash.com/photo-1617195737496-0f37f631749a?q=80&w=900&auto=format&fit=crop' },
   { id: 'borek-peynirli', title: 'Peynirli Börek', desc: 'Taze beyaz peynir', price: 85, weight: '220g', img: 'https://images.unsplash.com/photo-1536514498073-50e69d39c6d7?q=80&w=900&auto=format&fit=crop' },
-  { id: 'borek-ispanak', title: 'Ispanaklı Börek', desc: 'Taze ıspanak, ricotta', price: 90, weight: '240g', img: 'https://images.unsplash.com/photo-1617195737496-0f37f631749a?q=80&w=900&auto=format&fit=crop' },
-  { id: 'borek-patates', title: 'Patatesli Börek', desc: 'Baharatlı patates', price: 80, weight: '260g', img: 'https://images.unsplash.com/photo-1617195737496-0f37f631749a?q=80&w=900&auto=format&fit=crop' },
+  { id: 'borek-ispanak', title: 'Ispanaklı Börek', desc: 'Taze ıspanak, ricotta', price: 90, weight: '240g', img: 'https://images.unsplash.com/photo-1565299624946-b28f40a0ca4b?q=80&w=900&auto=format&fit=crop' },
+  { id: 'borek-patates', title: 'Patatesli Börek', desc: 'Baharatlı patates', price: 80, weight: '260g', img: 'https://images.unsplash.com/photo-1565299624946-b28f40a0ca4b?q=80&w=900&auto=format&fit=crop' },
   { id: 'pogaca-kasarli', title: 'Kaşarlı Poğaça', desc: 'Yumuşacık, günlük', price: 35, weight: '120g', img: 'https://images.unsplash.com/photo-1555507036-ab1f4038808a?q=80&w=900&auto=format&fit=crop' },
   { id: 'pogaca-zeytinli', title: 'Zeytinli Poğaça', desc: 'Siyah zeytinli', price: 32, weight: '110g', img: 'https://images.unsplash.com/photo-1523986371872-9d3ba2e2f642?q=80&w=900&auto=format&fit=crop' },
   { id: 'pogaca-patatesli-menu', title: 'Patatesli Poğaça', desc: 'Baharatlı patates', price: 38, weight: '130g', img: 'https://images.unsplash.com/photo-1523986371872-9d3ba2e2f642?q=80&w=900&auto=format&fit=crop' },
@@ -32,8 +32,8 @@ const MENU_PRODUCTS = [
   { id: 'croissant-badem', title: 'Bademli Kruvasan', desc: 'Kavrulmuş badem', price: 52, weight: '95g', img: 'https://images.unsplash.com/photo-1555507036-ab1f4038808a?q=80&w=900&auto=format&fit=crop' },
   { id: 'tatli-sutlac', title: 'Sütlaç', desc: 'Fırın sütlaç', price: 60, weight: '180g', img: 'https://images.unsplash.com/photo-1490474418585-ba9bad8fd0ea?q=80&w=900&auto=format&fit=crop' },
   { id: 'tatli-baklava', title: 'Fıstıklı Baklava', desc: 'Geleneksel', price: 120, weight: '100g', img: 'https://images.unsplash.com/photo-1596461404969-9ae70f2830c1?q=80&w=900&auto=format&fit=crop' },
-  { id: 'tatli-kunefe', title: 'Künefe', desc: 'Peynirli, şerbetli', price: 85, weight: '200g', img: 'https://images.unsplash.com/photo-1490474418585-ba9bad8fd0ea?q=80&w=900&auto=format&fit=crop' },
-  { id: 'tatli-kazandibi', title: 'Kazandibi', desc: 'Geleneksel tarif', price: 65, weight: '150g', img: 'https://images.unsplash.com/photo-1490474418585-ba9bad8fd0ea?q=80&w=900&auto=format&fit=crop' },
+  { id: 'tatli-kunefe', title: 'Künefe', desc: 'Peynirli, şerbetli', price: 85, weight: '200g', img: 'https://images.unsplash.com/photo-1571877227200-a0d98ea607e9?q=80&w=900&auto=format&fit=crop' },
+  { id: 'tatli-kazandibi', title: 'Kazandibi', desc: 'Geleneksel tarif', price: 65, weight: '150g', img: 'https://images.unsplash.com/photo-1571877227200-a0d98ea607e9?q=80&w=900&auto=format&fit=crop' },
   { id: 'ekmek-kepekli', title: 'Kepekli Ekmek', desc: 'Tam buğday', price: 28, weight: '500g', img: 'https://images.unsplash.com/photo-1509440159596-0249088772ff?q=80&w=900&auto=format&fit=crop' },
   { id: 'ekmek-cevizli', title: 'Cevizli Ekmek', desc: 'Kuru cevizli', price: 35, weight: '400g', img: 'https://images.unsplash.com/photo-1509440159596-0249088772ff?q=80&w=900&auto=format&fit=crop' },
   { id: 'pasta-cilek-menu', title: 'Çilekli Pasta', desc: 'Dilim pasta', price: 95, weight: '120g', img: 'https://images.unsplash.com/photo-1578985545062-69928b1d9587?q=80&w=900&auto=format&fit=crop' },
@@ -44,54 +44,63 @@ const MENU_PRODUCTS = [
   { id: 'muffin-vanilyali', title: 'Vanilyalı Muffin', desc: 'Vanilya aromalı', price: 40, weight: '95g', img: 'https://images.unsplash.com/photo-1558961363-fa8fdf82db35?q=80&w=900&auto=format&fit=crop' },
 ];
 
-const MENUS = {
+const MENU_PACKAGES = {
   two: {
-    id: 'menu-two',
+    id: 'package-two',
     title: '2 Kişilik Menü',
-    description: 'İki kişi için ideal porsiyon',
+    description: 'İki kişi için ideal porsiyon - %15 indirimli',
     products: [
-      { productId: 'borek-kiymali' },
-      { productId: 'borek-peynirli' },
-      { productId: 'croissant-sade' },
-      { productId: 'pogaca-kasarli' },
-      { productId: 'pogaca-zeytinli' },
-      { productId: 'tatli-sutlac' },
+      { productId: 'borek-kiymali', quantity: 1 },
+      { productId: 'borek-peynirli', quantity: 1 },
+      { productId: 'croissant-sade', quantity: 2 },
+      { productId: 'pogaca-kasarli', quantity: 2 },
+      { productId: 'tatli-sutlac', quantity: 2 },
     ],
+    discountPercent: 15,
   },
   four: {
-    id: 'menu-four',
+    id: 'package-four',
     title: '4 Kişilik Menü',
-    description: 'Aile boyu doyurucu seçenekler',
+    description: 'Aile boyu doyurucu seçenekler - %20 indirimli',
     products: [
-      { productId: 'borek-kiymali' },
-      { productId: 'borek-peynirli' },
-      { productId: 'borek-ispanak' },
-      { productId: 'pogaca-kasarli' },
-      { productId: 'pogaca-zeytinli' },
-      { productId: 'pogaca-patatesli-menu' },
-      { productId: 'croissant-sade' },
-      { productId: 'croissant-cikolata' },
-      { productId: 'tatli-baklava' },
-      { productId: 'tatli-sutlac' },
-      { productId: 'ekmek-kepekli' },
+      { productId: 'borek-kiymali', quantity: 1 },
+      { productId: 'borek-peynirli', quantity: 1 },
+      { productId: 'borek-ispanak', quantity: 1 },
+      { productId: 'pogaca-kasarli', quantity: 4 },
+      { productId: 'pogaca-zeytinli', quantity: 2 },
+      { productId: 'croissant-sade', quantity: 4 },
+      { productId: 'tatli-baklava', quantity: 1 },
+      { productId: 'tatli-sutlac', quantity: 2 },
     ],
+    discountPercent: 20,
   },
   mix: {
-    id: 'menu-mix',
+    id: 'package-mix',
     title: 'Karışık Menü',
-    description: 'Çeşitli lezzetlerden oluşan başlangıç menüsü',
+    description: 'Çeşitli lezzetlerden oluşan başlangıç menüsü - %12 indirimli',
     products: [
-      { productId: 'borek-kiymali' },
-      { productId: 'pogaca-kasarli' },
-      { productId: 'pogaca-zeytinli' },
-      { productId: 'pogaca-patatesli-menu' },
-      { productId: 'croissant-sade' },
-      { productId: 'croissant-cikolata' },
-      { productId: 'muffin-muzlu' },
-      { productId: 'kurabiye-findik' },
-      { productId: 'tatli-kazandibi' },
+      { productId: 'borek-kiymali', quantity: 1 },
+      { productId: 'pogaca-kasarli', quantity: 3 },
+      { productId: 'pogaca-zeytinli', quantity: 2 },
+      { productId: 'croissant-sade', quantity: 2 },
+      { productId: 'croissant-cikolata', quantity: 2 },
+      { productId: 'muffin-muzlu', quantity: 3 },
+      { productId: 'tatli-kazandibi', quantity: 2 },
     ],
+    discountPercent: 12,
   },
+};
+
+// Ürün kategorileri
+const PRODUCT_CATEGORIES = {
+  borek: ['borek-kiymali', 'borek-peynirli', 'borek-ispanak', 'borek-patates'],
+  pogaca: ['pogaca-kasarli', 'pogaca-zeytinli', 'pogaca-patatesli-menu', 'pogaca-kiymali'],
+  tatli: ['tatli-sutlac', 'tatli-baklava', 'tatli-kunefe', 'tatli-kazandibi'],
+  croissant: ['croissant-sade', 'croissant-cikolata', 'croissant-badem'],
+  pasta: ['pasta-cilek-menu', 'pasta-cikolata'],
+  kurabiye: ['kurabiye-findik', 'kurabiye-ceviz'],
+  muffin: ['muffin-muzlu', 'muffin-vanilyali'],
+  ekmek: ['ekmek-kepekli', 'ekmek-cevizli'],
 };
 
 function getProductById(id) { 
@@ -100,6 +109,29 @@ function getProductById(id) {
 
 function getMenuProductById(id) { 
   return MENU_PRODUCTS.find(p => p.id === id); 
+}
+
+// Menü paketi fiyat hesaplama
+function calculatePackagePrice(packageKey) {
+  const pkg = MENU_PACKAGES[packageKey];
+  if (!pkg) return { originalPrice: 0, discountedPrice: 0, savings: 0 };
+  
+  const originalPrice = pkg.products.reduce((total, item) => {
+    const product = getProductById(item.productId);
+    return total + (product ? product.price * item.quantity : 0);
+  }, 0);
+  
+  const discountedPrice = Math.round(originalPrice * (1 - pkg.discountPercent / 100));
+  const savings = originalPrice - discountedPrice;
+  
+  return { originalPrice, discountedPrice, savings };
+}
+
+// Kategoriye göre ürün filtreleme
+function getProductsByCategory(category) {
+  if (category === 'all') return MENU_PRODUCTS;
+  const categoryIds = PRODUCT_CATEGORIES[category] || [];
+  return MENU_PRODUCTS.filter(p => categoryIds.includes(p.id));
 }
 
 
