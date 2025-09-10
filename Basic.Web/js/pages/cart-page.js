@@ -3,7 +3,6 @@
   if (!listEl) return;
 
   const template = document.getElementById('cart-item-template');
-  const sortEl = document.getElementById('sort-select');
   const subtotalEl = document.getElementById('subtotal');
   const grandEl = document.getElementById('grandtotal');
 
@@ -14,29 +13,52 @@
     return { subtotal, total: subtotal };
   }
 
-  function readSorted() {
+  function getSortedItems() {
     const items = Cart.getDetailed();
-    const by = sortEl.value;
-    if (by === 'price-asc') items.sort((a, b) => a.product.price - b.product.price);
-    if (by === 'price-desc') items.sort((a, b) => b.product.price - a.product.price);
+    // Otomatik olarak yüksek fiyattan düşük fiyata sırala
+    items.sort((a, b) => b.product.price - a.product.price);
     return items;
   }
 
   function render() {
     listEl.innerHTML = '';
-    const items = readSorted();
+    const items = getSortedItems();
+    
+    if (items.length === 0) {
+      listEl.innerHTML = '<p class="empty-cart">Sepetiniz boş. <a href="./menus.html">Ürünlere göz atın</a></p>';
+      subtotalEl.textContent = formatTL(0);
+      grandEl.textContent = formatTL(0);
+      return;
+    }
+    
     items.forEach(it => {
       const node = template.content.firstElementChild.cloneNode(true);
       node.querySelector('.thumb').src = it.product.img;
       node.querySelector('.thumb').alt = it.product.title;
       node.querySelector('.title').textContent = it.product.title;
-      node.querySelector('.unit-price').textContent = `Birim: ${formatTL(it.product.price)}`;
+      node.querySelector('.unit-price').textContent = `Birim: ${formatTL(it.product.price)} • ${it.product.weight || ''}`;
       node.querySelector('.count').textContent = String(it.qty);
       node.querySelector('.line-total').textContent = formatTL(it.product.price * it.qty);
 
-      node.querySelector('.minus').addEventListener('click', () => { Cart.set(it.productId, it.qty - 1); render(); });
-      node.querySelector('.plus').addEventListener('click', () => { Cart.set(it.productId, it.qty + 1); render(); });
-      node.querySelector('.remove').addEventListener('click', () => { Cart.remove(it.productId); render(); });
+      // Counter butonları
+      const minusBtn = node.querySelector('.minus');
+      const plusBtn = node.querySelector('.plus');
+      const countEl = node.querySelector('.count');
+      
+      minusBtn.addEventListener('click', () => { 
+        Cart.set(it.productId, it.qty - 1); 
+        render(); 
+      });
+      
+      plusBtn.addEventListener('click', () => { 
+        Cart.set(it.productId, it.qty + 1); 
+        render(); 
+      });
+      
+      node.querySelector('.remove').addEventListener('click', () => { 
+        Cart.remove(it.productId); 
+        render(); 
+      });
 
       listEl.appendChild(node);
     });
@@ -46,7 +68,6 @@
     grandEl.textContent = formatTL(totals.total);
   }
 
-  sortEl.addEventListener('change', render);
   window.addEventListener('storage', render);
   render();
 
