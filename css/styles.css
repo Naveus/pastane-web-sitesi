@@ -19,8 +19,8 @@ body {
   overflow-x: hidden;
 }
 
-/* LightRays arka plan efekti - sadece anasayfa için */
-body.home-page::before {
+/* LightRays arka plan efekti - tüm sayfalarda */
+body::before {
   content: '';
   position: fixed;
   top: 0;
@@ -35,7 +35,7 @@ body.home-page::before {
   animation: lightRays 20s ease-in-out infinite;
 }
 
-body.home-page::after {
+body::after {
   content: '';
   position: fixed;
   bottom: -50px;
@@ -98,10 +98,10 @@ a { color: inherit; text-decoration: none; }
 .price-row { display: flex; align-items: center; justify-content: space-between; }
 .price { font-weight: 700; }
 
-.btn { border: 1px solid var(--border); background: transparent; color: var(--text); padding: 8px 12px; border-radius: 8px; cursor: pointer; }
-.btn:hover { border-color: var(--primary); color: var(--primary); }
+.btn { border: 1px solid var(--border); background: transparent; color: var(--text); padding: 8px 12px; border-radius: 8px; cursor: pointer; font-size: 14px; font-weight: 500; transition: all 0.2s ease; }
+.btn:hover { border-color: var(--primary); color: var(--primary); transform: translateY(-1px); }
 .btn-primary { background: var(--primary); border-color: var(--primary); color: white; }
-.btn-primary:hover { background: var(--primary-600); border-color: var(--primary-600); }
+.btn-primary:hover { background: var(--primary-600); border-color: var(--primary-600); transform: translateY(-1px); box-shadow: 0 4px 12px rgba(233, 30, 99, 0.3); }
 .btn-outline { background: transparent; }
 .btn-icon { width: 32px; height: 32px; border-radius: 6px; border: 1px solid var(--border); background: transparent; color: var(--text); cursor: pointer; }
 
